@@ -1,0 +1,22 @@
+.video {
+  width: 100%;
+  display: block;
+  height: 650px;
+  object-fit: cover;
+}
+
+.video-mobile {
+  display: none;
+}
+
+@media only screen and (max-width: 800px) {
+  .video-desktop {
+    display: none;
+  }
+  .video-mobile {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}
