@@ -81,10 +81,10 @@
   background: conic-gradient(
     from 0deg,
     rgba(255, 255, 255, 0.743),
-    rgba(210, 226, 178, 0.779),
-    rgba(187, 196, 137, 0.665),
-    rgba(226, 153, 179, 0.781),
-    rgba(255, 255, 255, 0.64)
+    rgba(218, 228, 197, 0.779),
+    rgba(195, 203, 153, 0.877),
+    rgba(237, 195, 210, 0.718),
+    rgba(255, 255, 255, 0.833)
   );
   animation: spin 12s linear infinite;
 }
