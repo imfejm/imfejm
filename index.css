@@ -26,3 +26,83 @@
     object-fit: cover;
   }
 }
+
+/* tekute sklo */
+.background-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 650px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  opacity: 0;
+  animation: fadeIn 0.8s ease forwards;
+  animation-delay: 3s;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+.glass-card {
+  width: 900px;
+  height: 500px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(26px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow:
+    0 8px 32px 0 rgba(31, 38, 135, 0.559),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+
+  /* Zajištění, aby byl obsah čitelný */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  overflow: hidden;
+  position: relative;
+}
+
+.glass-gradient {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  translate: -50% -50%;
+  z-index: -1;
+  filter: blur(55px);
+  background: conic-gradient(
+    from 0deg,
+    rgba(255, 255, 255, 0.743),
+    rgba(210, 226, 178, 0.779),
+    rgba(187, 196, 137, 0.665),
+    rgba(226, 153, 179, 0.781),
+    rgba(255, 255, 255, 0.64)
+  );
+  animation: spin 12s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.glass-card p {
+  color: rgb(16, 15, 15);
+
+  ;
+  font-size: 4rem;
+  text-align: center;
+  margin: 20px;
+  font-family:
+    "Gilda Display", serif;
+  
+    text-shadow: 1px 1px 19px rgba(235, 231, 231, 0.629);
+}
