@@ -95,11 +95,12 @@
   }
 }
 .glass-card p {
-  color: rgb(16, 15, 15);
+  color: rgb(9, 5, 57);
   font-size: 4rem;
   text-align: center;
   margin: 20px;
-  font-family: "Gilda Display", serif;
+  font-family: "Cinzel", serif;
+  font-weight: 500;
   text-shadow: 1px 1px 19px rgba(235, 231, 231, 0.629);
 }
 @media only screen and (max-width: 800px) {
