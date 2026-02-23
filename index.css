@@ -27,6 +27,18 @@
   }
 }
 
+.hero-section {
+  position: relative;
+}
+
+.stick {
+  width: 200px;
+  position: absolute;
+  bottom: -90px;
+  right: 10px;
+  z-index: 2;
+}
+
 /* tekute sklo */
 .background-container {
   position: absolute;
@@ -116,5 +128,10 @@
   }
   .glass-card p {
     font-size: 2rem;
+  }
+  .stick {
+    width: 160px;
+    bottom: -50px;
+    right: 10px;
   }
 }

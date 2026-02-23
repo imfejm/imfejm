@@ -13,31 +13,34 @@
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <div class="background-container">
-      <div class="glass-card">
-        <p>Zvládnete to sami.</p>
-        <p>Ale proč?</p>
-        <div class="glass-gradient"></div>
+    <div class="hero-section">
+      <div class="background-container">
+        <div class="glass-card">
+          <p>Zvládnete to sami.</p>
+          <p>Ale proč?</p>
+          <div class="glass-gradient"></div>
+        </div>
       </div>
+      <video
+        autoplay
+        muted
+        playsinline
+        preload="metadata"
+        class="video video-desktop"
+      >
+        <source src="img/hero.webm" type="video/webm" />
+      </video>
+      <video
+        autoplay
+        muted
+        playsinline
+        preload="metadata"
+        class="video video-mobile"
+      >
+        <source src="img/heroMobile.webm" type="video/webm" />
+      </video>
+      <img src="img/imfejmBanner.png" alt="imFEJM logo" class="stick" />
     </div>
-    <video
-      autoplay
-      muted
-      playsinline
-      preload="metadata"
-      class="video video-desktop"
-    >
-      <source src="img/hero.webm" type="video/webm" />
-    </video>
-    <video
-      autoplay
-      muted
-      playsinline
-      preload="metadata"
-      class="video video-mobile"
-    >
-      <source src="img/heroMobile.webm" type="video/webm" />
-    </video>
 
     <script src="index.js" defer></script>
   </body>
