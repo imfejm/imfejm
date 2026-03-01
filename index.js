@@ -22,4 +22,20 @@ odkazy.forEach((link) => {
   });
 });
 
+// Animace .highlight při doscrollování na .intro
+const intro = document.querySelector(".intro");
+if (intro) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        intro.querySelectorAll(".highlight").forEach(el => {
+          el.classList.add("is-visible");
+        });
+        observer.unobserve(intro);
+      }
+    });
+  }, { threshold: 0.1 });
+  observer.observe(intro);
+}
+
 
