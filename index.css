@@ -673,7 +673,6 @@ a.nav-link {
 }
 @media only screen and (max-width: 800px) {
   .intro {
-    
     font-size: 18px;
     padding: 20% 30% 20% 20%;
   }
@@ -699,12 +698,120 @@ a.nav-link {
   animation: highlight-reveal 0.8s ease 3s forwards;
 }
 
+.benefits h2 {
+  font-family: "alegreya sans", serif;
+  font-size: 2.5rem;
+  color: #121a1b;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.benefits-layout {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.benefits-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 0 10px 0 13%;
+}
+
+.benefit {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  color: #121a1b;
+  font-family: "karla", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 20px;
+  opacity: 0;
+  transform: translateY(-40px);
+  transition:
+    opacity 2s ease,
+    transform 2s ease;
+}
+
+.benefit p{
+  max-width: 60%;
+}
+
+.benefit.benefit-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.benefits-sidebar {
+  flex-shrink: 0;
+  position: sticky;
+  top: 50vh;
+  padding-right: 80px;
+}
+
+.benefits img {
+  border-radius: 30px;
+  height: 120px;
+  padding: 0 5px;
+  margin-right: 20px;
+  color: rgb(234, 234, 234);
+  transition: 0.6s;
+  box-shadow: 0px 0px 30px #1f4c65;
+  -webkit-box-reflect: left 12px
+    linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.317));
+}
+
+.benefitBtn {
+  flex-shrink: 0;
+  align-self: center;
+  font-family: "karla", sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 1rem 2.5rem;
+  border: none;
+  outline: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  background-color: #6c1e67d3;
+  color: rgb(234, 234, 234);
+
+  transition: 0.6s;
+  box-shadow: 0px 0px 60px #1f4c65;
+  -webkit-box-reflect: right 10px
+    linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.317));
+}
+
+.benefitBtn:active {
+  scale: 0.92;
+}
+
+.benefitBtn:hover {
+  background: rgb(2, 29, 78);
+  background: linear-gradient(
+    270deg,
+    rgba(7, 43, 109, 0.517) 0%,
+    rgba(31, 215, 232, 0.873) 60%
+  );
+  color: rgb(4, 4, 38);
+}
 @media (prefers-color-scheme: dark) {
   body {
     background-color: #121a1b;
   }
   .intro {
     background-color: #121a1b;
+    color: #eae6d2;
+  }
+  .benefits h2 {
+    color: #eae6d2;
+  }
+  .benefit {
     color: #eae6d2;
   }
 }

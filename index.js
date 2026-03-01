@@ -62,6 +62,16 @@ window.addEventListener('scroll', () => {
   }
 });
 
+// Postupne zobrazovani .benefit radku pri skrolu
+const benefits = document.querySelectorAll('.benefit');
+const benefitObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    entry.target.classList.toggle('benefit-visible', entry.isIntersecting);
+  });
+}, { threshold: 0.2, rootMargin: '0px 0px -50px 0px' });
+
+benefits.forEach(benefit => benefitObserver.observe(benefit));
+
 // Animace .highlight při doscrollování na .intro
 if (intro) {
   const observer = new IntersectionObserver((entries) => {
