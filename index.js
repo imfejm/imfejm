@@ -22,8 +22,39 @@ odkazy.forEach((link) => {
   });
 });
 
-// Animace .highlight při doscrollování na .intro
+// Scroll reveal pro .card__border
+const cards = document.querySelectorAll('.card__border');
+cards.forEach(card => card.classList.add('card-reveal'));
+
+const cardObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const card = entry.target;
+      const index = [...cards].indexOf(card);
+      setTimeout(() => {
+        card.classList.remove('card-reveal');
+        card.classList.add('card-visible');
+      }, index * 200);
+      cardObserver.unobserve(card);
+    }
+  });
+}, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+
+cards.forEach(card => cardObserver.observe(card));
+
+// Zaoblene horni rohy .intro + natazeni pres hero pri skrolu
 const intro = document.querySelector(".intro");
+const heroSection = document.querySelector(".hero-section");
+window.addEventListener('scroll', () => {
+  if (!intro) return;
+  const scrolled = window.scrollY;
+  const heroHeight = heroSection ? heroSection.offsetHeight : 400;
+  const shift = Math.min(scrolled * 0.6, heroHeight);
+  intro.classList.toggle('scrolled', scrolled > 50);
+  intro.style.transform = `translateY(-${shift}px)`;
+});
+
+// Animace .highlight při doscrollování na .intro
 if (intro) {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
