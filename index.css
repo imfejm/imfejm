@@ -455,7 +455,7 @@ a.nav-link {
   display: block;
   height: 650px;
   object-fit: cover;
-   border-radius: 0 0 3rem 3rem;
+  border-radius: 0 0 2rem 2rem;
 }
 
 .video-mobile {
@@ -484,6 +484,9 @@ a.nav-link {
   bottom: -90px;
   right: 10px;
   z-index: 2;
+  transition:
+    width 0.4s ease,
+    bottom 0.4s ease;
 }
 
 /* tekute sklo */
@@ -500,7 +503,6 @@ a.nav-link {
   opacity: 0;
   animation: fadeIn 0.8s ease forwards;
   animation-delay: 3s;
-  
 }
 
 @keyframes fadeIn {
@@ -643,6 +645,10 @@ a.nav-link {
     bottom: -50px;
     right: 18px;
   }
+  .stick.shrunk {
+    width: 90px;
+    bottom: -25px;
+  }
 }
 
 .intro {
@@ -650,7 +656,7 @@ a.nav-link {
   font-size: 1.2rem;
   font-weight: 400;
   color: #000;
-  padding: 140px 200px 10px 200px;  
+  padding: 100px 250px 150px 200px;
   line-height: 1.8;
   background-color: #eae6d2;
   border-radius: 0;
@@ -667,8 +673,9 @@ a.nav-link {
 }
 @media only screen and (max-width: 800px) {
   .intro {
-    padding: 50px;
+    
     font-size: 18px;
+    padding: 25%;
   }
 }
 
@@ -692,10 +699,10 @@ a.nav-link {
   animation: highlight-reveal 0.8s ease 3s forwards;
 }
 
-.cards{
-  display:flex;
+.cards {
+  display: flex;
   flex-wrap: wrap;
-  width:100%;
+  width: 100%;
   justify-content: center;
   flex-direction: row;
   gap: 30px;
@@ -704,7 +711,7 @@ a.nav-link {
   background-color: #eae6d2;
 }
 
-.card-title{
+.card-title {
   font-family: "alegreya sans", serif;
   font-size: 1.8rem;
   font-weight: 500;
@@ -771,20 +778,21 @@ a.nav-link {
   position: relative;
   z-index: 1;
   background-color: #a7aa63;
-  background-image: radial-gradient(
-      at 88% 40%,
-      rgb(167, 170, 99) 0px,
-      transparent 85%
-    ),
-   radial-gradient(at 49% 30%, rgb(167, 170, 99) 0px, transparent 85%),
+  background-image:
+    radial-gradient(at 88% 40%, rgb(167, 170, 99) 0px, transparent 85%),
+    radial-gradient(at 49% 30%, rgb(167, 170, 99) 0px, transparent 85%),
     radial-gradient(at 14% 26%, rgb(167, 170, 99) 0px, transparent 85%),
     radial-gradient(at 0% 64%, hsla(295, 51%, 24%, 0.266) 0px, transparent 85%),
     radial-gradient(at 41% 94%, hsla(67, 95%, 60%, 0.603) 0px, transparent 85%),
-    radial-gradient(at 100% 99%, hsla(66, 100%, 50%, 0.584) 0px, transparent 85%);
+    radial-gradient(
+      at 100% 99%,
+      hsla(66, 100%, 50%, 0.584) 0px,
+      transparent 85%
+    );
 
   border-radius: 1rem;
   box-shadow: 0px -16px 24px 0px rgba(255, 255, 255, 0.25) inset;
-  color:#121a1b;
+  color: #121a1b;
   font-family: "alegreya sans", sans-serif;
   font-size: 1.2rem;
   font-weight: 400;
@@ -813,7 +821,6 @@ a.nav-link {
   background-size: contain;
   background-repeat: no-repeat;
 }
-
 
 @property --angle-1 {
   syntax: "<angle>";
@@ -979,7 +986,8 @@ a.nav-link {
   left: calc(0% - var(--border-width) / 2);
   padding: var(--border-width);
   box-sizing: border-box;
-  background: conic-gradient(
+  background:
+    conic-gradient(
       from var(--angle-1) at 50% 50%,
       rgba(0, 0, 0, 0.5),
       rgba(0, 0, 0, 0) 5% 40%,
@@ -1067,6 +1075,12 @@ a.nav-link {
     background-color: #121a1b;
   }
   .intro {
+    background-color: #121a1b;
     color: #eae6d2;
+    
+  }
+  .cards {
+    background-color: #121a1b;
+    margin-top: 0;
   }
 }

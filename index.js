@@ -42,16 +42,24 @@ const cardObserver = new IntersectionObserver((entries) => {
 
 cards.forEach(card => cardObserver.observe(card));
 
-// Zaoblene horni rohy .intro + natazeni pres hero pri skrolu
+// Zaoblene horni rohy .intro + natazeni pres hero pri skrolu + zmenseni .stick na mobilu
 const intro = document.querySelector(".intro");
 const heroSection = document.querySelector(".hero-section");
+const stick = document.querySelector(".stick");
 window.addEventListener('scroll', () => {
-  if (!intro) return;
   const scrolled = window.scrollY;
-  const heroHeight = heroSection ? heroSection.offsetHeight : 400;
-  const shift = Math.min(scrolled * 0.6, heroHeight);
-  intro.classList.toggle('scrolled', scrolled > 50);
-  intro.style.transform = `translateY(-${shift}px)`;
+
+  if (intro) {
+    const heroHeight = heroSection ? heroSection.offsetHeight : 400;
+    const shift = Math.min(scrolled * 0.6, heroHeight);
+    intro.classList.toggle('scrolled', scrolled > 50);
+    intro.style.transform = `translateY(-${shift}px)`;
+    intro.style.marginBottom = `-${shift}px`;
+  }
+
+  if (stick && window.innerWidth <= 800) {
+    stick.classList.toggle('shrunk', scrolled > 80);
+  }
 });
 
 // Animace .highlight při doscrollování na .intro
