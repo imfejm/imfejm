@@ -62,6 +62,18 @@ window.addEventListener('scroll', () => {
   }
 });
 
+// Zobrazeni .benefits-sidebar (fixed na mobilu) az pri doscrolovani na .benefits
+const benefitsSidebar = document.querySelector('.benefits-sidebar');
+const benefitsSection = document.querySelector('.benefits');
+if (benefitsSidebar && benefitsSection) {
+  const sidebarObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      benefitsSidebar.classList.toggle('sidebar-visible', entry.isIntersecting);
+    });
+  }, { threshold: 0.05 });
+  sidebarObserver.observe(benefitsSection);
+}
+
 // Postupne zobrazovani .benefit radku pri skrolu
 const benefits = document.querySelectorAll('.benefit');
 const benefitObserver = new IntersectionObserver((entries) => {

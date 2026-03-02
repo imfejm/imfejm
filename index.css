@@ -40,7 +40,12 @@ body {
     height: 60px;
   }
 }
-
+@media only screen and (max-width: 800px) {
+  .line {
+    position: fixed;
+    height: 40px;
+  }
+}
 .menu {
   /* max-width: fit-content;*/
   position: absolute;
@@ -738,7 +743,7 @@ a.nav-link {
     transform 2s ease;
 }
 
-.benefit p{
+.benefit p {
   max-width: 60%;
 }
 
@@ -752,6 +757,39 @@ a.nav-link {
   position: sticky;
   top: 50vh;
   padding-right: 80px;
+}
+
+@media only screen and (max-width: 800px) {
+  .benefits-layout {
+    flex-direction: column;
+  }
+
+  .benefits-sidebar {
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+    background-color: #121a1b;
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+  }
+
+  .benefits-sidebar.sidebar-visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .benefitBtn {
+    width: 100%;
+  }
+
+  .benefits-list {
+    padding-bottom: 1rem;
+  }
 }
 
 .benefits img {
