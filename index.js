@@ -46,6 +46,7 @@ cards.forEach(card => cardObserver.observe(card));
 const intro = document.querySelector(".intro");
 const heroSection = document.querySelector(".hero-section");
 const stick = document.querySelector(".stick");
+const logoS = document.querySelector(".logoS");
 window.addEventListener('scroll', () => {
   const scrolled = window.scrollY;
 
@@ -57,8 +58,9 @@ window.addEventListener('scroll', () => {
     intro.style.marginBottom = `-${shift}px`;
   }
 
-  if (stick && window.innerWidth <= 800) {
-    stick.classList.toggle('shrunk', scrolled > 80);
+  if (window.innerWidth <= 800) {
+    if (stick) stick.classList.toggle('shrunk', scrolled > 80);
+    if (logoS) logoS.classList.toggle('logo-hidden', scrolled > 30);
   }
 });
 
