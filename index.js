@@ -98,21 +98,27 @@ if (benefitsList && lastBenefit) {
 }
 
 // Animace .highlight + fade-in .intro při doscrollování
+// Pouzivame getBoundingClientRect misto IntersectionObserver,
+// protoze intro ma translateY ktery posouva vizualni pozici
 const introP1 = intro ? intro.querySelector('.p1') : null;
 const introTrigger = introP1 || intro;
-if (introTrigger) {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        intro.classList.add("intro-visible");
-        intro.querySelectorAll(".highlight").forEach(el => {
-          el.classList.add("is-visible");
-        });
-        observer.unobserve(introTrigger);
-      }
+let introAnimated = false;
+
+function checkIntroVisible() {
+  if (introAnimated || !introTrigger) return;
+  const rect = introTrigger.getBoundingClientRect();
+  if (rect.top < window.innerHeight * 0.85) {
+    introAnimated = true;
+    intro.classList.add("intro-visible");
+    intro.querySelectorAll(".highlight").forEach(el => {
+      el.classList.add("is-visible");
     });
-  }, { threshold: 0.5 });
-  observer.observe(introTrigger);
+  }
 }
+
+window.addEventListener('scroll', checkIntroVisible, { passive: true });
+// Dvojite requestAnimationFrame zajisti, ze prohlizec stihne vykreslit opacity:0
+// pred tim, nez spustime prechod na opacity:1
+requestAnimationFrame(() => requestAnimationFrame(checkIntroVisible));
 
 
