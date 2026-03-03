@@ -631,7 +631,7 @@ a.nav-link {
     margin-top: 0;
   }
   .glass-card p {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
   .glassText p {
     font-size: 1.2rem;
@@ -655,10 +655,7 @@ a.nav-link {
     width: 180px;
     bottom: -50px;
     right: 18px;
-  }
-  .stick.shrunk {
-    width: 90px;
-    bottom: -25px;
+    z-index: 0;
   }
 }
 
@@ -707,14 +704,22 @@ a.nav-link {
 }
 @media only screen and (max-width: 800px) {
   .intro {
-    font-size: 18px;
+    font-size: 1.2rem;
     padding: 40% 10% 20% 10%;
     grid-template-columns: 1fr;
+    border-left: 1px solid #999933;
   }
   .intro .p1,
   .intro .p5 {
     grid-column: 1;
   }
+  .intro .p1 {
+    font-weight: 500;
+  }
+  .intro.intro-visible .p2 { transition-delay: 0.2s; }
+  .intro.intro-visible .p3 { transition-delay: 0.4s; }
+  .intro.intro-visible .p4 { transition-delay: 0.6s; }
+  .intro.intro-visible .p5 { transition-delay: 0.8s; }
 }
 
 
@@ -884,7 +889,7 @@ a.nav-link {
     gap: 10rem;
   }
   .benefit p {
-    font-size: 18px;
+    font-size: 1.2rem;
     font-weight: 300;
   }
 }

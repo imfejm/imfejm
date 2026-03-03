@@ -59,7 +59,6 @@ window.addEventListener('scroll', () => {
   }
 
   if (window.innerWidth <= 800) {
-    if (stick) stick.classList.toggle('shrunk', scrolled > 80);
     if (logoS) logoS.classList.toggle('logo-hidden', scrolled > 30);
   }
 });
@@ -99,7 +98,9 @@ if (benefitsList && lastBenefit) {
 }
 
 // Animace .highlight + fade-in .intro při doscrollování
-if (intro) {
+const introP1 = intro ? intro.querySelector('.p1') : null;
+const introTrigger = introP1 || intro;
+if (introTrigger) {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -107,11 +108,11 @@ if (intro) {
         intro.querySelectorAll(".highlight").forEach(el => {
           el.classList.add("is-visible");
         });
-        observer.unobserve(intro);
+        observer.unobserve(introTrigger);
       }
     });
-  }, { threshold: 0.1 });
-  observer.observe(intro);
+  }, { threshold: 0.5 });
+  observer.observe(introTrigger);
 }
 
 
