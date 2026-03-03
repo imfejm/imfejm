@@ -86,11 +86,24 @@ const benefitObserver = new IntersectionObserver((entries) => {
 
 benefits.forEach(benefit => benefitObserver.observe(benefit));
 
-// Animace .highlight při doscrollování na .intro
+// Zmenseni gapu v .benefits-list kdyz se doscroluje na posledni polozku
+const benefitsList = document.querySelector('.benefits-list');
+const lastBenefit = benefits[benefits.length - 1];
+if (benefitsList && lastBenefit) {
+  const gapObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      benefitsList.classList.toggle('benefits-compact', entry.isIntersecting);
+    });
+  }, { threshold: 0.5 });
+  gapObserver.observe(lastBenefit);
+}
+
+// Animace .highlight + fade-in .intro při doscrollování
 if (intro) {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
+        intro.classList.add("intro-visible");
         intro.querySelectorAll(".highlight").forEach(el => {
           el.classList.add("is-visible");
         });
