@@ -881,7 +881,7 @@ a.nav-link {
   .benefits-list {
     padding: 10%;
     margin: 0 auto;
-    gap: 3rem;
+    gap: 10rem;
   }
   .benefit p {
     font-size: 18px;
