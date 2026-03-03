@@ -98,16 +98,15 @@ if (benefitsList && lastBenefit) {
 }
 
 // Animace .highlight + fade-in .intro při doscrollování
-// Pouzivame getBoundingClientRect misto IntersectionObserver,
-// protoze intro ma translateY ktery posouva vizualni pozici
 const introP1 = intro ? intro.querySelector('.p1') : null;
-const introTrigger = introP1 || intro;
 let introAnimated = false;
 
 function checkIntroVisible() {
-  if (introAnimated || !introTrigger) return;
-  const rect = introTrigger.getBoundingClientRect();
-  if (rect.top < window.innerHeight * 0.85) {
+  if (introAnimated || !intro) return;
+  const trigger = introP1 || intro;
+  const rect = trigger.getBoundingClientRect();
+  // Spustit animaci az kdyz je p1 skutecne viditelny ve viewportu
+  if (rect.top < window.innerHeight * 0.9) {
     introAnimated = true;
     intro.classList.add("intro-visible");
     intro.querySelectorAll(".highlight").forEach(el => {
