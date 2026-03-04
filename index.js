@@ -114,7 +114,7 @@ if (benefitsSidebar && lastBenefit && window.innerWidth <= 800) {
       benefitsSidebar.classList.remove('sidebar-end');
     }
     // Prvek zmizel nad viewportem (top < 0) = scroll dolů → sidebar-end zůstane
-  }, { threshold: 0, rootMargin: '0px 0px 80px 0px' });
+  }, { threshold: 0.9 });
   sidebarEndObserver.observe(lastBenefit);
 }
 
