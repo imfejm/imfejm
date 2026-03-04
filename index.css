@@ -677,18 +677,22 @@ a.nav-link {
   gap: 2rem 3rem;
 }
 
+@keyframes introFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
 .intro .p2,
 .intro .p3,
 .intro .p4,
 .intro .p5 {
   opacity: 0;
-  transition: opacity 1.2s ease;
 }
 
-.intro.intro-visible .p2 { opacity: 1; transition-delay: 0.3s; }
-.intro.intro-visible .p3 { opacity: 1; transition-delay: 0.6s; }
-.intro.intro-visible .p4 { opacity: 1; transition-delay: 0.9s; }
-.intro.intro-visible .p5 { opacity: 1; transition-delay: 1.2s; }
+.intro.intro-visible .p2 { animation: introFadeIn 1.2s ease 0.3s forwards; }
+.intro.intro-visible .p3 { animation: introFadeIn 1.2s ease 0.6s forwards; }
+.intro.intro-visible .p4 { animation: introFadeIn 1.2s ease 0.9s forwards; }
+.intro.intro-visible .p5 { animation: introFadeIn 1.2s ease 1.2s forwards; }
 .intro.scrolled {
   border-radius: 10rem 10rem 0 0;
 }
@@ -716,10 +720,10 @@ a.nav-link {
   .intro .p1 {
     font-weight: 500;
   }
-  .intro.intro-visible .p2 { transition-delay: 0.2s; }
-  .intro.intro-visible .p3 { transition-delay: 0.4s; }
-  .intro.intro-visible .p4 { transition-delay: 0.6s; }
-  .intro.intro-visible .p5 { transition-delay: 0.8s; }
+  .intro.intro-visible .p2 { animation-delay: 0.2s; }
+  .intro.intro-visible .p3 { animation-delay: 0.4s; }
+  .intro.intro-visible .p4 { animation-delay: 0.6s; }
+  .intro.intro-visible .p5 { animation-delay: 0.8s; }
 }
 
 

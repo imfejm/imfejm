@@ -116,8 +116,8 @@ function checkIntroVisible() {
 }
 
 window.addEventListener('scroll', checkIntroVisible, { passive: true });
-// Dvojite requestAnimationFrame zajisti, ze prohlizec stihne vykreslit opacity:0
-// pred tim, nez spustime prechod na opacity:1
-requestAnimationFrame(() => requestAnimationFrame(checkIntroVisible));
+// Timeout zajisti, ze prohlizec stihne vykreslit pocatecni stav
+// pred spustenim animace (pro pripad nacteni stranky uz ve scroll pozici)
+setTimeout(checkIntroVisible, 100);
 
 
