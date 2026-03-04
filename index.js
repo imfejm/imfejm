@@ -98,14 +98,23 @@ if (benefitsList && lastBenefit) {
 }
 
 // Na mobilu: kdyz se doscroluje k poslednimu .benefit,
-// prepnout .benefits-sidebar z fixed na relative (in-flow) - permanentne
+// prepnout .benefits-sidebar z fixed na relative (in-flow) - permanentne.
+// Podminka sidebar-visible zajistuje, ze se sidebar-end prida jen kdyz
+// uz button byl videt jako fixed (= uzivatel prosel benefits sekci)
 if (benefitsSidebar && lastBenefit && window.innerWidth <= 800) {
   const sidebarEndObserver = new IntersectionObserver((entries) => {
-    if (entries[0].isIntersecting) {
-      benefitsSidebar.classList.add('sidebar-end');
-      sidebarEndObserver.disconnect();
+    const entry = entries[0];
+    if (entry.isIntersecting) {
+      // Doscrolováno k poslednímu benefitu → přepnout na in-flow
+      if (benefitsSidebar.classList.contains('sidebar-visible')) {
+        benefitsSidebar.classList.add('sidebar-end');
+      }
+    } else if (entry.boundingClientRect.top > 0) {
+      // Prvek zmizel pod viewportem = scroll nahoru → vrátit fixed
+      benefitsSidebar.classList.remove('sidebar-end');
     }
-  }, { threshold: 0.3 });
+    // Prvek zmizel nad viewportem (top < 0) = scroll dolů → sidebar-end zůstane
+  }, { threshold: 0, rootMargin: '0px 0px 80px 0px' });
   sidebarEndObserver.observe(lastBenefit);
 }
 
