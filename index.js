@@ -97,6 +97,18 @@ if (benefitsList && lastBenefit) {
   gapObserver.observe(lastBenefit);
 }
 
+// Na mobilu: kdyz se doscroluje k poslednimu .benefit,
+// prepnout .benefits-sidebar z fixed na relative (in-flow) - permanentne
+if (benefitsSidebar && lastBenefit && window.innerWidth <= 800) {
+  const sidebarEndObserver = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+      benefitsSidebar.classList.add('sidebar-end');
+      sidebarEndObserver.disconnect();
+    }
+  }, { threshold: 0.3 });
+  sidebarEndObserver.observe(lastBenefit);
+}
+
 // Animace .highlight + fade-in .intro při doscrollování
 const introP1 = intro ? intro.querySelector('.p1') : null;
 let introAnimated = false;
@@ -109,6 +121,7 @@ function checkIntroVisible() {
   if (rect.top < window.innerHeight * 0.9) {
     introAnimated = true;
     intro.classList.add("intro-visible");
+    setTimeout(() => intro.classList.add("intro-done"), 2500);
     intro.querySelectorAll(".highlight").forEach(el => {
       el.classList.add("is-visible");
     });

@@ -678,8 +678,12 @@ a.nav-link {
 }
 
 @keyframes introFadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .intro .p2,
@@ -689,10 +693,26 @@ a.nav-link {
   opacity: 0;
 }
 
-.intro.intro-visible .p2 { animation: introFadeIn 1.2s ease 0.3s forwards; }
-.intro.intro-visible .p3 { animation: introFadeIn 1.2s ease 0.6s forwards; }
-.intro.intro-visible .p4 { animation: introFadeIn 1.2s ease 0.9s forwards; }
-.intro.intro-visible .p5 { animation: introFadeIn 1.2s ease 1.2s forwards; }
+.intro.intro-visible .p2 {
+  animation: introFadeIn 1.2s ease 0.3s both;
+}
+.intro.intro-visible .p3 {
+  animation: introFadeIn 1.2s ease 0.6s both;
+}
+.intro.intro-visible .p4 {
+  animation: introFadeIn 1.2s ease 0.9s both;
+}
+.intro.intro-visible .p5 {
+  animation: introFadeIn 1.2s ease 1.2s both;
+}
+
+.intro.intro-done .p2,
+.intro.intro-done .p3,
+.intro.intro-done .p4,
+.intro.intro-done .p5 {
+  opacity: 1;
+  animation: none;
+}
 .intro.scrolled {
   border-radius: 10rem 10rem 0 0;
 }
@@ -703,7 +723,7 @@ a.nav-link {
 .intro p {
   margin-bottom: 0;
 }
-.intro .p5{
+.intro .p5 {
   padding-top: 10%;
 }
 @media only screen and (max-width: 800px) {
@@ -716,16 +736,22 @@ a.nav-link {
   .intro .p1,
   .intro .p5 {
     grid-column: 1;
-  }
-  .intro .p1 {
     font-weight: 500;
   }
-  .intro.intro-visible .p2 { animation-delay: 0.2s; }
-  .intro.intro-visible .p3 { animation-delay: 0.4s; }
-  .intro.intro-visible .p4 { animation-delay: 0.6s; }
-  .intro.intro-visible .p5 { animation-delay: 0.8s; }
-}
 
+  .intro.intro-visible .p2 {
+    animation-delay: 0.2s;
+  }
+  .intro.intro-visible .p3 {
+    animation-delay: 0.4s;
+  }
+  .intro.intro-visible .p4 {
+    animation-delay: 0.6s;
+  }
+  .intro.intro-visible .p5 {
+    animation-delay: 0.8s;
+  }
+}
 
 .benefits h2 {
   font-family: "Cinzel", serif;
@@ -796,8 +822,6 @@ a.nav-link {
   padding-right: 80px;
 }
 
-
-
 .benefits img {
   border-radius: 0px 0px 40px 0px;
   height: 350px;
@@ -812,7 +836,7 @@ a.nav-link {
 
 .benefitBtn {
   flex-shrink: 0;
-  width:270px;
+  width: 270px;
   align-self: center;
   font-family: "karla", sans-serif;
   font-weight: 400;
@@ -849,22 +873,25 @@ a.nav-link {
 @media only screen and (max-width: 800px) {
   .benefits-layout {
     flex-direction: column;
-    margin:0 auto;
+    margin: 0 auto;
+    gap: 1rem;
   }
 
-.benefit{
+  .benefit {
     flex-direction: row;
     gap: 1rem;
-}
-.benefit img{
-    width:40%;
+  }
+  .benefit img {
+    width: 40%;
     height: 140px;
     padding: 0;
-    margin: 0;}
-.benefit.benefit-visible {
+    margin: 0;
+  }
+  .benefit.benefit-visible {
     flex-direction: row;
-    gap: 2rem;}
- .benefits-sidebar {
+    gap: 2rem;
+  }
+  .benefits-sidebar {
     position: fixed;
     top: auto;
     bottom: 0;
@@ -883,6 +910,14 @@ a.nav-link {
     pointer-events: auto;
   }
 
+  .benefits-sidebar.sidebar-end {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
   .benefitBtn {
     width: 100%;
   }
@@ -892,12 +927,53 @@ a.nav-link {
     margin: 0 auto;
     gap: 10rem;
   }
+  .benefits-list.benefits-compact {
+    gap: 2rem;
+  }
   .benefit p {
     font-size: 1.2rem;
     font-weight: 300;
   }
 }
 
+.others h2 {
+  font-family: "Cinzel", serif;
+  font-size: 2.5rem;
+  color: #121a1b;
+  padding: 10rem 5rem;
+  text-align: center;
+}
+
+.other {
+  display: flex;
+  flex-direction: row;
+  font-family: "karla", sans-serif;
+  font-weight: 400;
+  font-size: 21px;
+  color: #121a1b;
+  padding: 0 150px 150px 150px;
+  line-height: 1.8;
+}
+.otherSEO {
+  border-top: 1px solid #999933;
+  padding-top: 7%;
+}
+.otherGRAPHIC {
+  border-top: 1px solid #999933;
+  padding-top: 7%;
+}
+@media only screen and (max-width: 800px) {
+  .others h2 {
+    padding: 10rem 0 5rem 0;
+  }
+  .other {
+    flex-direction: column;
+    padding: 0 10% 20% 10%;
+    gap: 2rem;
+    font-size: 1.2rem;
+    font-weight: 300;
+  }
+}
 
 @media (prefers-color-scheme: dark) {
   body {
@@ -911,6 +987,12 @@ a.nav-link {
     color: #eae6d2;
   }
   .benefit {
+    color: #eae6d2;
+  }
+  .other {
+    color: #eae6d2;
+  }
+  .others h2 {
     color: #eae6d2;
   }
 }
