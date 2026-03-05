@@ -697,6 +697,14 @@ a.nav-link {
   gap: 2rem 3rem;
 }
 
+
+
+@keyframes cardPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(153, 153, 51, 0); }
+  50%  { box-shadow: 0 0 20px 6px rgba(153, 153, 51, 0.4); }
+  100% { box-shadow: 0 0 0 0 rgba(153, 153, 51, 0); }
+}
+
 @keyframes introFadeIn {
   from {
     opacity: 0;
@@ -983,9 +991,7 @@ a.nav-link {
   padding: 0 150px 150px 150px;
   line-height: 1.8;
 }
-.otherSEO:hover,
-.otherGRAPHIC:hover {
-}
+
 
 .otherSEO:hover h4,
 .otherGRAPHIC:hover h4 {
@@ -1026,7 +1032,7 @@ a.nav-link {
 .otherSEO h4,
 .otherGRAPHIC h4 {
   font-family: "Cinzel", serif;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-style: italic;
   color: #999333;
   margin-bottom: 1rem;
@@ -1138,6 +1144,19 @@ a.nav-link {
     font-size: 1.2rem;
     font-weight: 300;
   }
+.otherSEO h4,
+  .otherGRAPHIC h4 {
+    font-size: 1.5rem;
+  }
+
+  .otherSEO,
+  .otherGRAPHIC {
+    animation: cardPulse 1.8s ease-in-out 1s 2;
+  }
+  .otherGRAPHIC {
+    animation-delay: 1.4s;
+  }
+
 }
 
 @media (prefers-color-scheme: dark) {
