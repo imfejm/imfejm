@@ -18,7 +18,7 @@ body {
   top: 0;
   width: 80px;
   height: 100vh;
-  background: url('img/mech.webp') round right top;
+  background: url("img/mech.webp") round right top;
   background-size: 80px auto;
   z-index: 5;
   pointer-events: none;
@@ -27,10 +27,9 @@ body {
 
 @media screen and (max-width: 800px) {
   .mech {
-    width:40px;
-    background-size: 100% auto;    
+    width: 37px;
+    background-size: 100% auto;
   }
-  
 }
 
 .line {
@@ -829,10 +828,9 @@ a.nav-link {
   padding-bottom: 7%;*/
   transition-delay: 0.4s;
 }
- .benefit.benefit-visible {
+.benefit.benefit-visible {
   border-top: 1px solid #999933;
-  
- }
+}
 
 .benefit.benefit-visible img,
 .benefit.benefit-visible p {
@@ -915,7 +913,6 @@ a.nav-link {
   .benefit.benefit-visible {
     flex-direction: row;
     gap: 2rem;
-    
   }
   .benefits-sidebar {
     position: fixed;
@@ -978,7 +975,7 @@ a.nav-link {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  gap:2rem;
+  gap: 2rem;
   font-family: "karla", sans-serif;
   font-weight: 400;
   font-size: 21px;
@@ -988,7 +985,6 @@ a.nav-link {
 }
 .otherSEO:hover,
 .otherGRAPHIC:hover {
-
 }
 
 .otherSEO:hover h4,
@@ -1056,7 +1052,7 @@ a.nav-link {
 .styled-wrapper .button {
   display: block;
   position: relative;
-  
+
   width: 76px;
   height: 76px;
   margin: 0;
@@ -1131,8 +1127,6 @@ a.nav-link {
   transform: translateX(-69px);
 }
 
-
-
 @media only screen and (max-width: 800px) {
   .others h2 {
     padding: 10rem 0 5rem 0;
@@ -1173,5 +1167,7 @@ a.nav-link {
     background-color: #121a1b;
   }
   .otherSEO::after,
-.otherGRAPHIC::after {background: linear-gradient(71deg, #110e0e, #999933, #110e0e);}
+  .otherGRAPHIC::after {
+    background: linear-gradient(71deg, #110e0e, #999933, #110e0e);
+  }
 }
