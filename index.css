@@ -27,7 +27,7 @@ body {
 
 @media screen and (max-width: 800px) {
   .mech {
-    width: 30px;
+    width: 16px;
     background-size: 100% auto;
   }
 }
@@ -697,12 +697,16 @@ a.nav-link {
   gap: 2rem 3rem;
 }
 
-
-
 @keyframes cardPulse {
-  0%   { box-shadow: 0 0 0 0 rgba(153, 153, 51, 0); }
-  50%  { box-shadow: 0 0 20px 6px rgba(153, 153, 51, 0.4); }
-  100% { box-shadow: 0 0 0 0 rgba(153, 153, 51, 0); }
+  0% {
+    box-shadow: 0 0 0 0 rgba(153, 153, 51, 0);
+  }
+  50% {
+    box-shadow: 0 0 20px 6px rgba(153, 153, 51, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(153, 153, 51, 0);
+  }
 }
 
 @keyframes introFadeIn {
@@ -992,7 +996,6 @@ a.nav-link {
   line-height: 1.8;
 }
 
-
 .otherSEO:hover h4,
 .otherGRAPHIC:hover h4 {
   font-size: 2rem;
@@ -1144,19 +1147,17 @@ a.nav-link {
     font-size: 1.2rem;
     font-weight: 300;
   }
-.otherSEO h4,
+  .otherSEO h4,
   .otherGRAPHIC h4 {
     font-size: 1.5rem;
   }
 
-  .otherSEO,
-  .otherGRAPHIC {
-    animation: cardPulse 1.8s ease-in-out 1s 2;
+  .others.pulse-ready .otherSEO {
+    animation: cardPulse 1.8s ease-in-out 0s 2;
   }
-  .otherGRAPHIC {
-    animation-delay: 1.4s;
+  .others.pulse-ready .otherGRAPHIC {
+    animation: cardPulse 1.8s ease-in-out 0.4s 2;
   }
-
 }
 
 @media (prefers-color-scheme: dark) {

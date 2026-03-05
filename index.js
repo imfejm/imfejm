@@ -153,6 +153,20 @@ window.addEventListener('scroll', checkIntroVisible, { passive: true });
 // pred spustenim animace (pro pripad nacteni stranky uz ve scroll pozici)
 setTimeout(checkIntroVisible, 100);
 
+// Pulse animace karet pri zobrazeni .others (jen mobil)
+if (window.innerWidth <= 800) {
+  const othersSection = document.querySelector('.others');
+  if (othersSection) {
+    const othersObserver = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        othersSection.classList.add('pulse-ready');
+        othersObserver.disconnect();
+      }
+    }, { threshold: 0.3 });
+    othersObserver.observe(othersSection);
+  }
+}
+
 // Rozbaleni .otherSEO a .otherGRAPHIC po kliknuti na kartu (accordion - jen jedna otevrena)
 const otherCards = document.querySelectorAll('.otherSEO, .otherGRAPHIC');
 otherCards.forEach(card => {
