@@ -142,4 +142,12 @@ window.addEventListener('scroll', checkIntroVisible, { passive: true });
 // pred spustenim animace (pro pripad nacteni stranky uz ve scroll pozici)
 setTimeout(checkIntroVisible, 100);
 
-
+// Rozbaleni .otherSEO a .otherGRAPHIC po kliknuti na kartu (accordion - jen jedna otevrena)
+const otherCards = document.querySelectorAll('.otherSEO, .otherGRAPHIC');
+otherCards.forEach(card => {
+  card.addEventListener('click', (e) => {
+    if (e.target.closest('.styled-wrapper')) return;
+    otherCards.forEach(c => { if (c !== card) c.classList.remove('open'); });
+    card.classList.add('open');
+  });
+});
