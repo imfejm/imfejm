@@ -47,6 +47,8 @@ const intro = document.querySelector(".intro");
 const heroSection = document.querySelector(".hero-section");
 const stick = document.querySelector(".stick");
 const logoS = document.querySelector(".logoS");
+const mech = document.querySelector('.mech');
+
 window.addEventListener('scroll', () => {
   const scrolled = window.scrollY;
 
@@ -60,6 +62,15 @@ window.addEventListener('scroll', () => {
 
   if (window.innerWidth <= 800) {
     if (logoS) logoS.classList.toggle('logo-hidden', scrolled > 30);
+  }
+
+  if (mech && intro) {
+    const heroBottom = heroSection ? heroSection.offsetTop + heroSection.offsetHeight * 0.2 : 0;
+    const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollFromHero = Math.max(scrolled - heroBottom, 0);
+    const progress = Math.min(scrollFromHero / (totalScroll - heroBottom), 1);
+    const remaining = Math.round((1 - progress) * 100);
+    mech.style.clipPath = `inset(0 0 ${remaining}% 0)`;
   }
 });
 

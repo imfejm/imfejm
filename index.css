@@ -12,6 +12,27 @@ body {
   background-color: #eeece3;
 }
 
+.mech {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 80px;
+  height: 100vh;
+  background: url('img/mech.webp') round right top;
+  background-size: 80px auto;
+  z-index: 5;
+  pointer-events: none;
+  clip-path: inset(0 0 100% 0);
+}
+
+@media screen and (max-width: 800px) {
+  .mech {
+    width:40px;
+    background-size: 100% auto;    
+  }
+  
+}
+
 .line {
   display: flex;
   flex-direction: row;
@@ -965,6 +986,17 @@ a.nav-link {
   padding: 0 150px 150px 150px;
   line-height: 1.8;
 }
+.otherSEO:hover,
+.otherGRAPHIC:hover {
+
+}
+
+.otherSEO:hover h4,
+.otherGRAPHIC:hover h4 {
+  font-size: 2rem;
+  transition: font-size 0.3s ease;
+}
+
 .otherSEO,
 .otherGRAPHIC {
   position: relative;
