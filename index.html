@@ -77,11 +77,11 @@
         </div>
       </div>
 
-      <div class="ham" id="ham">
+      <button class="ham" id="ham" aria-label="Otevřít menu" aria-expanded="false">
         <div class="cara1" id="cara1"></div>
         <div class="cara2" id="cara2"></div>
         <div class="cara3" id="cara3"></div>
-      </div>
+      </button>
     </div>
 
     <div class="navigace small hidden" id="menu">
@@ -197,7 +197,7 @@
     <div class="others">
       <h2 class="other-title">Samostatné služby: SEO a grafika</h2>
       <div class="other">
-        <div class="otherSEO">
+        <div class="otherSEO" role="button" tabindex="0">
           <h4>SEO</h4>
           <div class="other-collapsible">
             <p>
@@ -208,13 +208,14 @@
               či další důležité detaily webu).
             </p>
             <div class="styled-wrapper">
-              <button class="button">
+              <button class="button" aria-label="Kontaktovat ohledně SEO">
                 <div class="button-box">
                   <span class="button-elem">
                     <svg
                       viewBox="0 0 24 24"
                       xmlns="http://www.w3.org/2000/svg"
                       class="arrow-icon"
+                      aria-hidden="true"
                     >
                       <path
                         fill="#999333"
@@ -228,6 +229,7 @@
                       viewBox="0 0  24 24"
                       xmlns="http://www.w3.org/2000/svg"
                       class="arrow-icon"
+                      aria-hidden="true"
                     >
                       <path
                         d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
@@ -239,7 +241,7 @@
             </div>
           </div>
         </div>
-        <div class="otherGRAPHIC">
+        <div class="otherGRAPHIC" role="button" tabindex="0">
           <h4>Grafika</h4>
           <div class="other-collapsible">
             <p>
@@ -250,13 +252,14 @@
               aby výsledek vypadal co nejlépe.
             </p>
             <div class="styled-wrapper">
-              <button class="button">
+              <button class="button" aria-label="Kontaktovat ohledně grafiky">
                 <div class="button-box">
                   <span class="button-elem">
                     <svg
                       viewBox="0 0 24 24"
                       xmlns="http://www.w3.org/2000/svg"
                       class="arrow-icon"
+                      aria-hidden="true"
                     >
                       <path
                         fill="#999333"
@@ -270,6 +273,7 @@
                       viewBox="0 0  24 24"
                       xmlns="http://www.w3.org/2000/svg"
                       class="arrow-icon"
+                      aria-hidden="true"
                     >
                       <path
                         d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"

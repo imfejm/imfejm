@@ -353,7 +353,8 @@ body {
   position: absolute;
   right: 15px; /* Pevná vzdálenost od pravého okraje */
   top: 7px; /* Vertikálně vycentrovaný */
-
+  background-color: transparent;
+  border:none;
   width: 30px; /* Pevná šířka místo 3vw */
   aspect-ratio: 1/1;
   display: flex;
@@ -470,6 +471,12 @@ a.nav-link {
   color: #999933;
 
   /*border-bottom: 1px solid #07192f;*/
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+  text-decoration: underline;
+  outline: none;
 }
 
 @media only screen and (min-width: 800px) {
@@ -603,6 +610,11 @@ a.nav-link {
   font-size: 1.5rem;
   font-weight: 400;
   color: #000;
+}
+
+.glassBtn:focus-visible {
+  outline: 2px solid #999933;
+  outline-offset: 3px;
 }
 
 .glassBtn {
@@ -900,6 +912,11 @@ a.nav-link {
   height: 12px;
   background: url('img/mech2.webp') repeat-x center;
   background-size: auto 12px;
+}
+
+.benefitBtn:focus-visible {
+  outline: 2px solid #999933;
+  outline-offset: 3px;
 }
 
 .benefitBtn:active {
