@@ -444,8 +444,6 @@ body {
     filter: none;
     left: auto;
     right: 50px;
-    
-   
   }
   .logoS.logo-hidden {
     opacity: 0 !important;
@@ -674,11 +672,7 @@ a.nav-link {
 
 .glassBtn:hover {
   background: rgb(2, 29, 78);
-  background: linear-gradient(
-    270deg,
-    rgba(7, 43, 109, 0.517) 0%,
-    rgba(31, 215, 232, 0.873) 60%
-  );
+  background: linear-gradient(270deg, #716c26c8 0%, #eae04da7 60%);
   color: rgb(4, 4, 38);
 }
 
@@ -704,15 +698,14 @@ a.nav-link {
     margin-top: 10%;
     padding: 0.8rem 1.5rem;
     font-size: 1rem;
-    background: linear-gradient(
-      270deg,
-      rgba(2, 29, 78, 0.681) 0%,
-      rgba(31, 215, 232, 0.873) 60%
-    );
-    color: rgb(4, 4, 38);
+    background-color: #6c1e67d3;
+    color: #f7f6f2;
+    
+    
   }
   .glassBtn:hover {
-    color: #f7f6f2;
+    color: rgb(4, 4, 38);
+    background: linear-gradient(270deg, #716c26c8 0%, #eae04da7 60%);
   }
 
   .stick {
@@ -957,8 +950,8 @@ a.nav-link {
   background: rgb(2, 29, 78);
   background: linear-gradient(
     270deg,
-    rgba(7, 43, 109, 0.517) 0%,
-    rgba(31, 215, 232, 0.873) 60%
+    #716c26c8 0%,
+    #eae04da7 60%
   );
   color: rgb(4, 4, 38);
 }
@@ -1014,6 +1007,11 @@ a.nav-link {
   .benefitBtn {
     width: 100%;
     font-size: 1.1rem;
+  }
+  .benefitBtn:hover {
+    background: rgb(2, 29, 78);
+    background: linear-gradient(270deg, #716c26c8 0%, #eae04da7 60%);
+    color: rgb(4, 4, 38);
   }
 
   .benefits h2 {
@@ -1292,7 +1290,7 @@ a.nav-link {
   gap: 0.5rem;
   margin-top: 1.5rem;
   justify-content: center;
-  padding:2rem 5rem 5rem 5rem;
+  padding: 2rem 5rem 5rem 5rem;
 }
 
 .carousel-dot {
@@ -1328,12 +1326,27 @@ a.nav-link {
   -webkit-box-reflect: below 10px
     linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.317));
 }
+.itemsBtn:focus-visible {
+  outline: 2px solid #999933;
+  outline-offset: 3px;
+}
+
+.itemsBtn:hover{
+  
+  background: rgb(2, 29, 78);
+  background: linear-gradient(
+    270deg,
+    #716c26c8 0%,
+    #eae04da7 60%
+  );
+  color: rgb(4, 4, 38);
+}
 
 @media screen and (max-width: 800px) {
   .ad {
     display: block;
     text-align: center;
-    padding:3rem 0;
+    padding: 3rem 0;
   }
 
   .ad-slide {
@@ -1344,15 +1357,14 @@ a.nav-link {
     padding-top: 2rem;
   }
   .carousel-dots {
-    padding-top:0;
-    margin-top:0;
+    padding-top: 0;
+    margin-top: 0;
   }
   .itemsBtn {
     width: 80%;
     font-size: 1.1rem;
     margin-top: 2rem;
   }
-  
 
   .advice h2 {
     font-size: 1.8rem;
@@ -1364,7 +1376,7 @@ a.nav-link {
     padding: 0.75rem 3.5rem;
   }
 }
-.contact{
+.contact {
   background-image: url(img/jezirko.webp);
 }
 @media (prefers-color-scheme: dark) {
