@@ -5,6 +5,7 @@ const odkazy = rozbal.querySelectorAll("a");
 
 tlacitko.addEventListener("click", () => {
   rozbal.classList.toggle("hidden");
+  if (logoS) logoS.classList.toggle("logo-menu-open", !rozbal.classList.contains("hidden"));
 
   document.querySelector("#cara1").classList.toggle("caraA");
   document.querySelector("#cara2").classList.toggle("caraB");
@@ -15,6 +16,7 @@ tlacitko.addEventListener("click", () => {
 odkazy.forEach((link) => {
   link.addEventListener("click", () => {
     rozbal.classList.add("hidden");
+    if (logoS) logoS.classList.remove("logo-menu-open");
 
     document.querySelector("#cara1").classList.remove("caraA");
     document.querySelector("#cara2").classList.remove("caraB");
@@ -60,9 +62,6 @@ window.addEventListener('scroll', () => {
     intro.style.marginBottom = `-${shift}px`;
   }
 
-  if (window.innerWidth <= 800) {
-    if (logoS) logoS.classList.toggle('logo-hidden', scrolled > 30);
-  }
 
   if (mech && intro) {
     const heroBottom = heroSection ? heroSection.offsetTop + heroSection.offsetHeight * 0.2 : 0;
@@ -176,3 +175,33 @@ otherCards.forEach(card => {
     card.classList.add('open');
   });
 });
+
+// Karusel .adviceItems
+const adsTrack = document.querySelector('.ads-track');
+const dotsContainer = document.querySelector('.carousel-dots');
+
+if (adsTrack && dotsContainer) {
+  const slides = adsTrack.querySelectorAll('.ad-slide');
+  const slideCount = slides.length;
+  let current = 0;
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.classList.add('carousel-dot');
+    dot.setAttribute('aria-label', `Slide ${i + 1}`);
+    if (i === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => goTo(i));
+    dotsContainer.appendChild(dot);
+  });
+
+  const dots = dotsContainer.querySelectorAll('.carousel-dot');
+
+  function goTo(index) {
+    dots[current].classList.remove('active');
+    current = index;
+    adsTrack.style.transform = `translateX(-${current * 100}%)`;
+    dots[current].classList.add('active');
+  }
+
+  setInterval(() => goTo((current + 1) % slideCount), 3500);
+}
