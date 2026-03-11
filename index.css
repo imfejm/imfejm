@@ -4,9 +4,15 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+html {
+  overflow-x: hidden;
+}
+
 body {
   max-width: 1350px;
   margin: 0 auto;
+  overflow-x: hidden;
 }
 body {
   background-color: #eeece3;
