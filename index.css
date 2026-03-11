@@ -6,13 +6,13 @@
 }
 
 html {
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body {
   max-width: 1350px;
   margin: 0 auto;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 body {
   background-color: #eeece3;
@@ -359,7 +359,7 @@ body {
 .ham {
   /*hamburger a krizek*/
   position: absolute;
-  right: 15px; /* Pevná vzdálenost od pravého okraje */
+  left: 15px; /* Pevná vzdálenost od pravého okraje */
   top: 7px; /* Vertikálně vycentrovaný */
   background-color: transparent;
   border: none;
@@ -445,6 +445,8 @@ body {
   .logoS.logo-menu-open {
     opacity: 1 !important;
     pointer-events: auto;
+    left: auto;
+    right: 30px;
   }
 }
 
@@ -794,7 +796,7 @@ a.nav-link {
 @media only screen and (max-width: 800px) {
   .intro {
     font-size: 1.2rem;
-    padding: 40% 10% 20% 10%;
+    padding: 40% 10% 20% 3.5rem;
     grid-template-columns: 1fr;
     border-left: 2px solid #999933;
   }
@@ -822,7 +824,7 @@ a.nav-link {
   font-family: "Cinzel", serif;
   font-size: 2.5rem;
   color: #121a1b;
-  padding: 5rem;
+  padding: 5rem 5rem 9rem 5rem;
   text-align: center;
 }
 
@@ -838,7 +840,7 @@ a.nav-link {
   display: flex;
   flex-direction: column;
   gap: 13rem;
-  padding: 0 0px 0px 130px;
+  padding: 0 0px 0px 145px;
   transition: gap 5s ease;
 }
 
@@ -980,7 +982,7 @@ a.nav-link {
     left: 0;
     width: 100%;
     padding: 1rem;
-    background-color: #121a1b;
+
     z-index: 100;
     opacity: 0;
     pointer-events: none;
@@ -1007,10 +1009,11 @@ a.nav-link {
 
   .benefits h2 {
     font-size: 1.8rem;
+    padding: 5rem 3.5rem;
   }
 
   .benefits-list {
-    padding: 10%;
+    padding: 3.5rem;
     margin: 0 auto;
     gap: 10rem;
   }
@@ -1031,7 +1034,7 @@ a.nav-link {
   font-family: "Cinzel", serif;
   font-size: 2.5rem;
   color: #121a1b;
-  padding: 5rem 5rem;
+  padding: 9rem 5rem 9rem 5rem;
   text-align: center;
 }
 
@@ -1193,6 +1196,7 @@ a.nav-link {
   .others h2 {
     padding: 10rem 0 5rem 0;
     font-size: 1.8rem;
+    padding: 5rem 2rem 5rem 2rem;
   }
   .other {
     flex-direction: column;
@@ -1204,6 +1208,8 @@ a.nav-link {
   .otherSEO h4,
   .otherGRAPHIC h4 {
     font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+    margin: 0;
   }
 
   .others.pulse-ready .otherSEO {
@@ -1217,13 +1223,14 @@ a.nav-link {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 5rem;
 }
 
 .advice h2 {
   font-family: "Cinzel", serif;
   font-size: 2.5rem;
   color: #121a1b;
-  padding-bottom: 2rem;
+  padding: 5rem 5rem 2rem 5rem;
   text-align: center;
 }
 .adviceText {
@@ -1244,7 +1251,7 @@ a.nav-link {
   overflow: hidden;
   max-width: 900px;
   margin: 0 auto;
-  padding-top: 70px;
+  padding-top: 7rem;
 }
 
 .ads-track {
@@ -1276,6 +1283,7 @@ a.nav-link {
   gap: 0.5rem;
   margin-top: 1.5rem;
   justify-content: center;
+  padding:2rem 5rem 5rem 5rem;
 }
 
 .carousel-dot {
@@ -1317,27 +1325,35 @@ a.nav-link {
     flex-direction: column;
     flex: 0 0 100%;
     text-align: center;
+    gap: 2rem;
   }
 
   .ad-slide {
     flex-direction: column;
-    gap: 2rem;
+    gap: 0rem;
+  }
+  .carousel-dots {
+    margin-top: 10rem;
   }
   .itemsBtn {
     width: 80%;
     font-size: 1.1rem;
-    margin-top: 50px;
+    margin-top: 5rem;
   }
 
   .advice h2 {
     font-size: 1.8rem;
+    padding: 5rem 2rem 3rem 2rem;
   }
 
   .adviceText {
     font-size: 1.1rem;
+    padding: 0.75rem 3.5rem;
   }
 }
-
+.contact{
+  background-image: url(img/jezirko.webp);
+}
 @media (prefers-color-scheme: dark) {
   body {
     background-color: #050502;
