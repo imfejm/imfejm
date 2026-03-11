@@ -208,4 +208,29 @@ if (adsTrack && dotsContainer) {
   }
 
   setInterval(() => goTo((current + 1) % slideCount), 3500);
+
+  // Swipe / drag podpora
+  let dragStartX = null;
+
+  function onDragStart(x) { dragStartX = x; }
+  function onDragEnd(x) {
+    if (dragStartX === null) return;
+    const diff = dragStartX - x;
+    if (Math.abs(diff) > 50) {
+      goTo(diff > 0
+        ? Math.min(current + 1, slideCount - 1)
+        : Math.max(current - 1, 0));
+    }
+    dragStartX = null;
+  }
+
+  // Touch
+  adsTrack.addEventListener('touchstart', e => onDragStart(e.touches[0].clientX), { passive: true });
+  adsTrack.addEventListener('touchend', e => onDragEnd(e.changedTouches[0].clientX), { passive: true });
+
+  // Mouse
+  adsTrack.addEventListener('mousedown', e => onDragStart(e.clientX));
+  adsTrack.addEventListener('mouseup', e => onDragEnd(e.clientX));
+  adsTrack.addEventListener('mouseleave', () => { dragStartX = null; });
+  adsTrack.style.cursor = 'grab';
 }
