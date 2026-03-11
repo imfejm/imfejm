@@ -438,9 +438,18 @@ body {
 
 @media (max-width: 800px) {
   .logoS {
+    animation: none;
+    opacity: 1;
+    pointer-events: auto;
+    filter: none;
+    left: auto;
+    right: 50px;
+    
+   
+  }
+  .logoS.logo-hidden {
     opacity: 0 !important;
     pointer-events: none;
-    animation: none;
   }
   .logoS.logo-menu-open {
     opacity: 1 !important;
@@ -1322,28 +1331,32 @@ a.nav-link {
 
 @media screen and (max-width: 800px) {
   .ad {
-    flex-direction: column;
-    flex: 0 0 100%;
+    display: block;
     text-align: center;
-    gap: 2rem;
+    padding:3rem 0;
   }
 
   .ad-slide {
     flex-direction: column;
     gap: 0rem;
   }
+  .adviceItems {
+    padding-top: 2rem;
+  }
   .carousel-dots {
-    margin-top: 10rem;
+    padding-top:0;
+    margin-top:0;
   }
   .itemsBtn {
     width: 80%;
     font-size: 1.1rem;
-    margin-top: 5rem;
+    margin-top: 2rem;
   }
+  
 
   .advice h2 {
     font-size: 1.8rem;
-    padding: 5rem 2rem 3rem 2rem;
+    padding: 5rem 2rem 1rem 2rem;
   }
 
   .adviceText {

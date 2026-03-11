@@ -63,6 +63,10 @@ window.addEventListener('scroll', () => {
   }
 
 
+  if (window.innerWidth <= 800 && logoS && !logoS.classList.contains('logo-menu-open')) {
+    logoS.classList.toggle('logo-hidden', scrolled > 30);
+  }
+
   if (mech && intro) {
     const heroBottom = heroSection ? heroSection.offsetTop + heroSection.offsetHeight * 0.2 : 0;
     const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
