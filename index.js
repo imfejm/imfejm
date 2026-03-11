@@ -194,7 +194,7 @@ if (adsTrack && dotsContainer) {
     dot.classList.add('carousel-dot');
     dot.setAttribute('aria-label', `Slide ${i + 1}`);
     if (i === 0) dot.classList.add('active');
-    dot.addEventListener('click', () => goTo(i));
+    dot.addEventListener('click', () => { goTo(i); resetAutoplay(); });
     dotsContainer.appendChild(dot);
   });
 
@@ -207,7 +207,12 @@ if (adsTrack && dotsContainer) {
     dots[current].classList.add('active');
   }
 
-  setInterval(() => goTo((current + 1) % slideCount), 3500);
+  let autoplay = setInterval(() => goTo((current + 1) % slideCount), 3500);
+
+  function resetAutoplay() {
+    clearInterval(autoplay);
+    autoplay = setInterval(() => goTo((current + 1) % slideCount), 3500);
+  }
 
   // Swipe / drag podpora
   let dragStartX = null;
@@ -220,6 +225,7 @@ if (adsTrack && dotsContainer) {
       goTo(diff > 0
         ? Math.min(current + 1, slideCount - 1)
         : Math.max(current - 1, 0));
+      resetAutoplay();
     }
     dragStartX = null;
   }
