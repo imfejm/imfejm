@@ -730,7 +730,7 @@ a.nav-link {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem 3rem;
-  color:white;
+  color: white;
 }
 
 @keyframes cardPulse {
@@ -808,16 +808,16 @@ a.nav-link {
   }
 
   .intro.intro-visible .p2 {
-    animation-delay: 0.4s;
-  }
-  .intro.intro-visible .p3 {
-    animation-delay: 0.8s;
-  }
-  .intro.intro-visible .p4 {
     animation-delay: 1.2s;
   }
-  .intro.intro-visible .p5 {
+  .intro.intro-visible .p3 {
     animation-delay: 1.4s;
+  }
+  .intro.intro-visible .p4 {
+    animation-delay: 1.8s;
+  }
+  .intro.intro-visible .p5 {
+    animation-delay: 2s;
   }
 }
 
