@@ -1344,8 +1344,20 @@ a.nav-link {
   }
 
   .ad p {
-    padding: 1rem 0;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
+
+ /* .ad img {
+   padding-left:7rem;
+  }
+
+  .ad p {
+    padding: 1rem;
+    text-align: left;
+
+  }*/
+ 
 
   .ad-slide {
     flex-direction: column;
