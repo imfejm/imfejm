@@ -1541,6 +1541,12 @@ label {
     flex-direction: column;
     padding: 20px;
   }
+  .marta{
+    padding-top: 3rem;
+  }
+  .contactForm{
+    padding: 2rem 0;
+  }
   .contactForm button {
     width: 45%;
   }
