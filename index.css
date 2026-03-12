@@ -811,13 +811,13 @@ a.nav-link {
     animation-delay: 0.4s;
   }
   .intro.intro-visible .p3 {
-    animation-delay: 0.6s;
-  }
-  .intro.intro-visible .p4 {
     animation-delay: 0.8s;
   }
+  .intro.intro-visible .p4 {
+    animation-delay: 1.2s;
+  }
   .intro.intro-visible .p5 {
-    animation-delay: 1s;
+    animation-delay: 1.4s;
   }
 }
 
