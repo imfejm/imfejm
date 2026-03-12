@@ -1,4 +1,4 @@
-/* barvy: bila= #eeece3, zelena= #999933, petrolejova tmava=  #121a1b, cerna=#050502, cerna zelena=#121a1b*/
+/* barvy: bila= #eeece3, zelena= #999933, fialova= #6c1e67d3, petrolejova tmava=  #121a1b, cerna=#050502, cerna zelena=#121a1b*/
 * {
   margin: 0;
   padding: 0;
@@ -1348,7 +1348,7 @@ a.nav-link {
     word-break: break-word;
   }
 
- /* .ad img {
+  /* .ad img {
    padding-left:7rem;
   }
 
@@ -1357,7 +1357,6 @@ a.nav-link {
     text-align: left;
 
   }*/
- 
 
   .ad-slide {
     flex-direction: column;
@@ -1388,6 +1387,163 @@ a.nav-link {
 }
 .contact {
   background-image: url(img/jezirko.webp);
+  z-index: 1;
+  opacity: 0;
+  animation: fadeIn 0.8s ease forwards;
+  animation-delay: 3s;
+  color: #121a1b;
+  font-family: "karla", sans-serif;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.glassContact {
+  width: 90%;
+  height: auto;
+  justify-self: center;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow:
+    0 8px 32px 0 rgba(31, 38, 135, 0.559),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+
+  /* Zajištění, aby byl obsah čitelný */
+  overflow: hidden;
+  position: relative;
+  margin-top: 80px;
+  display: flex;
+  flex-direction: row;
+}
+
+.glass-gradientContact {
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  width: 300%;
+  height: 300%;
+  translate: -50% -50%;
+  z-index: -1;
+  filter: blur(55px);
+  background: conic-gradient(
+    from 0deg,
+    rgba(255, 255, 255, 0.655),
+    rgba(218, 228, 197, 0.627),
+    rgba(195, 203, 153, 0.733),
+    rgba(237, 195, 210, 0.718),
+    rgba(255, 255, 255, 0.626)
+  );
+  animation: spin 15s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.contactLeft {
+  flex: 0 0 50%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
+
+.contact h2 {
+  font-family: "Cinzel", serif;
+  font-size: 2.5rem;
+  color: #121a1b;
+  padding: 0rem 5rem 2rem 2rem;
+  text-align: center;
+}
+
+.contactLeft p {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  width: 100%;
+}
+.marta,
+.mail,
+.phone,
+.datovka {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+
+  padding: 1rem 0 0 2rem;
+  font-weight: 400;
+}
+.marta {
+  padding: 5rem 0 1rem 2rem;
+}
+
+.tel a {
+  color: #121a1b;
+  text-decoration: none;
+  font-weight: 400;
+}
+.contactRight {
+  flex: 0 0 50%;
+  min-width: 0;
+}
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  padding: 2rem;
+  width: 100%;
+}
+
+input,
+textarea {
+  width: 90%;
+  height: 2rem;
+  margin: 1%;
+  background-color: #eeeae4;
+  border-radius: 10px;
+  border: 1px solid #999933;
+  justify-content: center;
+  gap: 5rem;
+}
+
+textarea {
+  height: 8rem;
+}
+label {
+  padding: 1% 0 1% 0;
+}
+.contactForm button {
+  width: 30%;
+  font-family: "karla", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  padding: 1rem 1.5rem;
+  margin: 1rem;
+  border: none;
+  outline: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  background-color: #6c1e67c4;
+  color: rgb(234, 234, 234);
+  -webkit-box-reflect: below 10px
+    linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.317));
+}
+.contactForm button:hover {
+  opacity: 0.4;
+}
+@media only screen and (max-width: 800px) {
+  .glassContact {
+    flex-direction: column;
+    padding: 20px;
+  }
+  .contactForm button {
+    width: 45%;
+  }
 }
 @media (prefers-color-scheme: dark) {
   body {
