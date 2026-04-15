@@ -180,6 +180,30 @@ otherCards.forEach(card => {
   });
 });
 
+// Hamburger overlay
+const hamburgerBtn = document.querySelector('.btn-hamburger');
+const hamburgerOverlay = document.getElementById('hamburgerOverlay');
+
+if (hamburgerBtn && hamburgerOverlay) {
+  const desktopMenu = document.querySelector('.menu');
+
+  hamburgerBtn.addEventListener('click', () => {
+    const isOpen = hamburgerOverlay.classList.toggle('open');
+    hamburgerBtn.classList.toggle('is-open', isOpen);
+    hamburgerBtn.setAttribute('aria-expanded', isOpen);
+    if (desktopMenu) desktopMenu.classList.toggle('hamburger-open', isOpen);
+  });
+
+  hamburgerOverlay.querySelectorAll('.hamburger-nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburgerOverlay.classList.remove('open');
+      hamburgerBtn.classList.remove('is-open');
+      hamburgerBtn.setAttribute('aria-expanded', false);
+      if (desktopMenu) desktopMenu.classList.remove('hamburger-open');
+    });
+  });
+}
+
 // Karusel .adviceItems
 const adsTrack = document.querySelector('.ads-track');
 const dotsContainer = document.querySelector('.carousel-dots');

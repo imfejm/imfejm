@@ -18,7 +18,7 @@ body {
   background-color: #f9f8f4;
 }
 
-.mech {
+/* .mech {
   position: fixed;
   right: 0;
   top: 0;
@@ -29,13 +29,13 @@ body {
   z-index: 5;
   pointer-events: none;
   clip-path: inset(0 0 100% 0);
-}
+} */
 
 @media screen and (max-width: 800px) {
-  .mech {
+  /* .mech {
     width: 16px;
     background-size: 100% auto;
-  }
+  } */
 }
 
 .line {
@@ -91,6 +91,7 @@ body {
 .btn-wrapper {
   position: relative;
   display: inline-block;
+  transition: opacity 0.3s ease;
 }
 
 .btn {
@@ -169,6 +170,24 @@ body {
   transition:
     opacity var(--transition),
     filter var(--transition);
+}
+
+.btn-hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  padding-top: calc(1em - 8px);
+  padding-bottom: calc(1em - 8px);
+}
+
+.hamburger-line {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: #fff;
+  border-radius: 2px;
 }
 
 .btn-letter {
@@ -821,6 +840,10 @@ a.nav-link {
   }
 }
 
+.benefits {
+  zoom: 0.8;
+}
+
 .benefits h2 {
   font-family: "Cinzel", serif;
   font-size: 2.5rem;
@@ -952,6 +975,9 @@ a.nav-link {
 }
 
 @media only screen and (max-width: 800px) {
+  .benefits {
+    zoom: 1;
+  }
   .benefits-layout {
     flex-direction: column;
     margin: 0 auto;
@@ -1238,6 +1264,7 @@ a.nav-link {
   color: #121a1b;
   padding: 5rem 5rem 2rem 5rem;
   text-align: center;
+  border-top: 1px solid #999333;
 }
 .adviceText {
   font-family: "Alegreya Sans", sans-serif;
@@ -1541,10 +1568,10 @@ label {
     flex-direction: column;
     padding: 20px;
   }
-  .marta{
+  .marta {
     padding-top: 3rem;
   }
-  .contactForm{
+  .contactForm {
     padding: 2rem 0;
   }
   .contactForm button {
@@ -1594,4 +1621,85 @@ label {
   .ad p {
     color: #eeece3;
   }
+}
+
+.navBottom {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Hamburger overlay */
+.hamburger-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: #121a1b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.hamburger-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.menu.hamburger-open .btn-wrapper {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.hamburger-nav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  padding: 2rem;
+}
+
+.hamburger-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.hamburger-col-title {
+  font-family: "Cinzel", serif;
+  font-size: 1.2rem;
+  color: #999933;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+}
+
+.hamburger-nav-link {
+  font-family: "Karla", sans-serif;
+  font-size: 1.1rem;
+  color: #eeece3;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.hamburger-nav-link:hover {
+  color: #999933;
+}
+
+/* Hamburger → křížek animace */
+.hamburger-line {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: center;
+}
+
+.btn-hamburger.is-open .hamburger-line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.btn-hamburger.is-open .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.btn-hamburger.is-open .hamburger-line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
