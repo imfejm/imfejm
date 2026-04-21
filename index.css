@@ -1060,7 +1060,7 @@ a.nav-link {
 }
 .others h2 {
   font-family: "Cinzel", serif;
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: #121a1b;
   padding: 9rem 5rem 9rem 5rem;
   text-align: center;
@@ -1073,7 +1073,7 @@ a.nav-link {
   gap: 5rem;
   font-family: "karla", sans-serif;
   font-weight: 400;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   color: #121a1b;
   padding: 0 150px 150px 150px;
   line-height: 1.8;
@@ -1081,7 +1081,7 @@ a.nav-link {
 
 .otherSEO:hover h4,
 .otherGRAPHIC:hover h4 {
-  font-size: 2rem;
+  font-size: 1.75rem;
   transition: font-size 0.3s ease;
 }
 
@@ -1131,7 +1131,7 @@ a.nav-link {
 .otherSEO h4,
 .otherGRAPHIC h4 {
   font-family: "Cinzel", serif;
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   font-style: italic;
   color: #999333;
   margin-bottom: 1rem;
@@ -1260,7 +1260,7 @@ a.nav-link {
 
 .advice h2 {
   font-family: "Cinzel", serif;
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: #121a1b;
   padding: 5rem 5rem 2rem 5rem;
   text-align: center;
@@ -1339,7 +1339,7 @@ a.nav-link {
   width: 40%;
   font-family: "karla", sans-serif;
   font-weight: 400;
-  font-size: 1.3rem;
+  font-size: 1rem;
   padding: 1rem 1.5rem;
   margin: 2rem;
   border: none;
@@ -1398,7 +1398,7 @@ a.nav-link {
   }
   .itemsBtn {
     width: 80%;
-    font-size: 1.1rem;
+    font-size: 1rem;
     margin-top: 2rem;
   }
 
@@ -1480,7 +1480,7 @@ a.nav-link {
 
 .contact h2 {
   font-family: "Cinzel", serif;
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: #121a1b;
   padding: 0rem 5rem 2rem 2rem;
   text-align: center;
@@ -1688,7 +1688,9 @@ label {
 
 /* Hamburger → křížek animace */
 .hamburger-line {
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
   transform-origin: center;
 }
 
