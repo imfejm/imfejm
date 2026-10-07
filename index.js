@@ -273,3 +273,11 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeMenuDropdowns();
 });
 document.querySelectorAll('.dd-link').forEach(l => l.addEventListener('click', closeMenuDropdowns));
+
+document.querySelectorAll('.dd-btn').forEach(b => {
+  b.addEventListener('click', () => {
+    closeMenuDropdowns();
+    const target = document.querySelector(b.dataset.target);
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  });
+});

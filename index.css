@@ -383,8 +383,7 @@ body {
     padding: 0.5em;
   }
   .menu {
-    top: 10px;
-    transform: none;
+    display: none;
   }
 }
 .ham {
@@ -1649,24 +1648,26 @@ label {
   min-width: 100%;
   width: max-content;
   list-style: none;
-  background-color: #121a1b;
+  background-color: #191b12f9;
   border: 1px solid #fff2;
-  border-radius: 4px;
+  border-radius: 0px 0px 10px 0px;
   padding: 0.5rem 0;
-  box-shadow: 0 8px 20px #0006;
+  box-shadow: 10px 8px 20px #0006;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-6px);
+  /* sbaleno: oříznuto shora od tlačítka */
+  clip-path: inset(0 -40px 100% -40px);
   transition:
-    opacity 0.25s ease,
-    transform 0.25s ease,
-    visibility 0.25s;
+    clip-path 0.4s ease,
+    opacity 0.2s ease,
+    visibility 0.4s;
   z-index: 10;
 }
 .btn-wrapper.open .dropdown {
   opacity: 1;
   visibility: visible;
-  transform: none;
+  /* záporné okraje nechají vidět stín a odraz tlačítka */
+  clip-path: inset(0 -40px -120px -40px);
 }
 .dd-link {
   display: block;
@@ -1684,4 +1685,15 @@ label {
 .dd-link:focus-visible {
   color: #999933;
   background-color: #fff1;
+}
+
+/* Tlačítko "Chci!" v rozbaleném menu */
+.dd-cta {
+  padding: 0.6rem 1.2rem 0.3rem;
+}
+.dd-btn {
+  width: 100%;
+  font-size: 1rem;
+  padding: 0.7rem 1.5rem;
+  box-shadow: none;
 }
