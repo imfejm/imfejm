@@ -180,30 +180,6 @@ otherCards.forEach(card => {
   });
 });
 
-// Hamburger overlay
-const hamburgerBtn = document.querySelector('.btn-hamburger');
-const hamburgerOverlay = document.getElementById('hamburgerOverlay');
-
-if (hamburgerBtn && hamburgerOverlay) {
-  const desktopMenu = document.querySelector('.menu');
-
-  hamburgerBtn.addEventListener('click', () => {
-    const isOpen = hamburgerOverlay.classList.toggle('open');
-    hamburgerBtn.classList.toggle('is-open', isOpen);
-    hamburgerBtn.setAttribute('aria-expanded', isOpen);
-    if (desktopMenu) desktopMenu.classList.toggle('hamburger-open', isOpen);
-  });
-
-  hamburgerOverlay.querySelectorAll('.hamburger-nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-      hamburgerOverlay.classList.remove('open');
-      hamburgerBtn.classList.remove('is-open');
-      hamburgerBtn.setAttribute('aria-expanded', false);
-      if (desktopMenu) desktopMenu.classList.remove('hamburger-open');
-    });
-  });
-}
-
 // Karusel .adviceItems
 const adsTrack = document.querySelector('.ads-track');
 const dotsContainer = document.querySelector('.carousel-dots');
@@ -264,3 +240,36 @@ if (adsTrack && dotsContainer) {
   adsTrack.addEventListener('mouseleave', () => { dragStartX = null; });
   adsTrack.style.cursor = 'grab';
 }
+
+// Rozbalovací menu pod tlačítky v horní liště
+const menuWrappers = document.querySelectorAll('.menu .btn-wrapper');
+menuWrappers.forEach(wrapper => {
+  const btn = wrapper.querySelector('.btn');
+  btn.setAttribute('aria-expanded', 'false');
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const willOpen = !wrapper.classList.contains('open');
+    menuWrappers.forEach(w => {
+      w.classList.remove('open');
+      w.querySelector('.btn').setAttribute('aria-expanded', 'false');
+    });
+    if (willOpen) {
+      wrapper.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
+
+const closeMenuDropdowns = () => {
+  menuWrappers.forEach(w => {
+    w.classList.remove('open');
+    w.querySelector('.btn').setAttribute('aria-expanded', 'false');
+  });
+};
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.menu .btn-wrapper')) closeMenuDropdowns();
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeMenuDropdowns();
+});
+document.querySelectorAll('.dd-link').forEach(l => l.addEventListener('click', closeMenuDropdowns));

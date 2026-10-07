@@ -75,7 +75,8 @@ body {
 .menu {
   /* max-width: fit-content;*/
   position: absolute;
-  right: 100px;
+  left: 210px; /* za logem */
+  right: 30px;
   top: 80%;
   transform: translateY(-50%);
   display: flex;
@@ -172,24 +173,6 @@ body {
     filter var(--transition);
 }
 
-.btn-hamburger {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-  padding-top: calc(1em - 8px);
-  padding-bottom: calc(1em - 8px);
-}
-
-.hamburger-line {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background-color: #fff;
-  border-radius: 2px;
-}
-
 .btn-letter {
   position: relative;
   display: inline-block;
@@ -213,12 +196,41 @@ body {
   position: relative;
   display: flex;
   align-items: center;
-  min-width: 6.4em;
+  justify-content: center;
+  min-width: 8em;
 }
 .txt-1 {
-  position: absolute;
+  position: static;
   width: 100%;
   text-align: center;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+/* stejně široká tlačítka, celá plocha klikací */
+.menu {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  align-items: stretch;
+}
+.menu .btn-wrapper {
+  display: flex;
+}
+.menu .txt-wrapper {
+  min-width: 0;
+}
+.menu .btn {
+  width: 100%;
+  font-size: clamp(0.95rem, 1.7vw, 1.5rem);
+  padding: 0;
+  align-items: stretch;
+}
+.menu .btn a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 1em;
 }
 .txt-1 {
   animation: appear-anim 1s ease-in-out forwards;
@@ -1628,80 +1640,48 @@ label {
   grid-template-columns: repeat(3, 1fr);
 }
 
-/* Hamburger overlay */
-.hamburger-overlay {
+
+/* Rozbalovací menu pod tlačítky */
+.dropdown {
   position: absolute;
-  inset: 0;
+  top: calc(100% + 10px);
+  left: 0;
+  min-width: 100%;
+  width: max-content;
+  list-style: none;
   background-color: #121a1b;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 100;
+  border: 1px solid #fff2;
+  border-radius: 4px;
+  padding: 0.5rem 0;
+  box-shadow: 0 8px 20px #0006;
   opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    visibility 0.25s;
+  z-index: 10;
 }
-
-.hamburger-overlay.open {
+.btn-wrapper.open .dropdown {
   opacity: 1;
-  pointer-events: auto;
+  visibility: visible;
+  transform: none;
 }
-
-.menu.hamburger-open .btn-wrapper {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-}
-
-.hamburger-nav {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 3rem;
-  padding: 2rem;
-}
-
-.hamburger-col {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.hamburger-col-title {
-  font-family: "Cinzel", serif;
-  font-size: 1.2rem;
-  color: #999933;
-  letter-spacing: 0.08em;
-  margin-bottom: 0.5rem;
-}
-
-.hamburger-nav-link {
+.dd-link {
+  display: block;
+  padding: 0.6rem 1.2rem;
   font-family: "Karla", sans-serif;
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #eeece3;
   text-decoration: none;
-  transition: color 0.2s;
-}
-
-.hamburger-nav-link:hover {
-  color: #999933;
-}
-
-/* Hamburger → křížek animace */
-.hamburger-line {
+  white-space: nowrap;
   transition:
-    transform 0.3s ease,
-    opacity 0.3s ease;
-  transform-origin: center;
+    color 0.2s,
+    background-color 0.2s;
 }
-
-.btn-hamburger.is-open .hamburger-line:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
-}
-
-.btn-hamburger.is-open .hamburger-line:nth-child(2) {
-  opacity: 0;
-}
-
-.btn-hamburger.is-open .hamburger-line:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
+.dd-link:hover,
+.dd-link:focus-visible {
+  color: #999933;
+  background-color: #fff1;
 }
